@@ -1,0 +1,25 @@
+##############################################################################
+# cmake configuration file for cmake4hep cmake modules
+#
+# returns following variables:
+#
+#   cmake4hep_FOUND    : set to TRUE if package found
+#   cmake4hep_ROOT     : path to the package root installation directory
+#   cmake4hep_CONFIG   : path to this configuration file
+#
+#
+# @author Jan Engels, Desy
+##############################################################################
+
+SET( cmake4hep_ROOT "@CMAKE_INSTALL_PREFIX@/cmake4hep" )
+SET( cmake4hep_CONFIG "@CMAKE_INSTALL_PREFIX@/cmake4hepConfig.cmake" )
+SET( cmake4hep_VERSION "@cmake4hep_VERSION@" )
+
+LIST( APPEND CMAKE_MODULE_PATH ${cmake4hep_ROOT} )
+
+# ---------- final checking ---------------------------------------------------
+INCLUDE( FindPackageHandleStandardArgs )
+# set CMAKE4HEP_FOUND to TRUE if all listed variables are TRUE and not empty
+FIND_PACKAGE_HANDLE_STANDARD_ARGS( cmake4hep DEFAULT_MSG cmake4hep_CONFIG cmake4hep_ROOT )
+
+SET( cmake4hep_FOUND ${CMAKE4HEP_FOUND} )
